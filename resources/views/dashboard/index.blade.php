@@ -38,6 +38,16 @@
     </div>
 </div>
 
+<!-- GRAFIK -->
+<div class="card shadow-sm border-0 mb-4">
+    <div class="card-header bg-light fw-bold">
+        Financial Overview
+    </div>
+    <div class="card-body">
+        <canvas id="financeChart" height="100"></canvas>
+    </div>
+</div>
+
 <div class="row">
     <div class="col-md-6">
         <div class="card shadow-sm border-0">
@@ -93,4 +103,41 @@
         </div>
     </div>
 </div>
+
+<!-- SCRIPT GRAFIK -->
+<script>
+const ctx = document.getElementById('financeChart').getContext('2d');
+const financeChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Total Debts', 'Debts Paid', 'Total Credits', 'Credits Received'],
+        datasets: [{
+            label: 'Amount ($)',
+            data: [
+                {{ $totalDebts }},
+                {{ $totalDebtsPaid }},
+                {{ $totalCredits }},
+                {{ $totalCreditsReceived }}
+            ],
+            backgroundColor: ['#dc3545', '#198754', '#0dcaf0', '#20c997'],
+            borderWidth: 1,
+            borderRadius: 6
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: false },
+            title: {
+                display: true,
+                text: 'Debt & Credit Summary',
+                font: { size: 16, weight: 'bold' }
+            }
+        },
+        scales: {
+            y: { beginAtZero: true }
+        }
+    }
+});
+</script>
 @endsection
