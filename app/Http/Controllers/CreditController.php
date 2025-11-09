@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 class CreditController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $credits = Auth::user()->credits()->latest()->paginate(10);
