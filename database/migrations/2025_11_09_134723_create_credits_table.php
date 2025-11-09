@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('credits', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->text('debtor_name');
+            $table->decimal('amount', 12, 2);
+            $table->text('description')->nullable();
+            $table->date('due_date')->nullable();
+            $table->enum('status', ['pending', 'received', 'overdue'])->default('pending');
             $table->timestamps();
         });
     }
