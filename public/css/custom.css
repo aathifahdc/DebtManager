@@ -1,0 +1,71 @@
+:root {
+  --primary: #3b82f6;
+  --white: #ffffff;
+  --light-gray: #f3f4f6;
+  --dark-gray: #6b7280;
+}
+
+* {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--light-gray);
+  color: #1f2937;
+}
+
+.card {
+  border-radius: 12px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+  border-color: #2563eb;
+}
+
+.navbar {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-control,
+.form-select {
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+}
+
+.table {
+  background-color: white;
+}
+
+.table thead {
+  background-color: var(--light-gray);
+}
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-weight: 500;
+}
